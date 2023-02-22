@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject colliderPrefab;
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            Instantiate(colliderPrefab, transform);
+            Debug.Log(transform.childCount);
+        }
     }
 }
