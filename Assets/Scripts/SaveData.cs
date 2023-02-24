@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class SaveData : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] private PerformanceData performanceData = new PerformanceData();
+
+    private void Update()
     {
-        
+        if(Input.GetKeyUp(KeyCode.S))
+            SaveIntoJson();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SaveIntoJson()
     {
-        
+        string potion = JsonUtility.ToJson(performanceData);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/PerformanceData.json", potion);
+        Debug.Log("saved to: " + Application.persistentDataPath);
     }
+
+}
+
+[System.Serializable]
+public class PerformanceData
+{
+    public string name;
 }
