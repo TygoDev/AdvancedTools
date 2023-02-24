@@ -1,23 +1,31 @@
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SaveData : MonoBehaviour
 {
+    public List<PerformanceData> performanceDataList = new List<PerformanceData>();
 
-    [SerializeField] private PerformanceData performanceData = new PerformanceData();
-
-    private void Update()
+    private void LateUpdate()
     {
-        if(Input.GetKeyUp(KeyCode.S))
-            SaveIntoJson();
+        SaveIntoJson();
     }
 
     public void SaveIntoJson()
     {
-        string potion = JsonUtility.ToJson(performanceData);
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/PerformanceData.json", potion);
-        Debug.Log("saved to: " + Application.persistentDataPath);
+        PerformanceData newPerformanceData = new PerformanceData();
+
+        newPerformanceData.time = Time.time;
+        newPerformanceData.fps = 1 / Time.deltaTime;
+        newPerformanceData.colliders = 0;
+        newPerformanceData.amountOfCollisions = 0;
+
+        performanceDataList.Add(newPerformanceData);
+
+        string jsonStr = JsonConvert.SerializeObject(performanceDataList, Formatting.Indented);
+
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/PerformanceData.json", jsonStr);
     }
 
 }
@@ -25,5 +33,8 @@ public class SaveData : MonoBehaviour
 [System.Serializable]
 public class PerformanceData
 {
-    public string name;
+    public float fps;
+    public float time;
+    public int colliders;
+    public int amountOfCollisions;
 }
