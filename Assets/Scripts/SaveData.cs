@@ -6,10 +6,17 @@ using UnityEngine;
 public class SaveData : MonoBehaviour
 {
     public List<PerformanceData> performanceDataList = new List<PerformanceData>();
+    [SerializeField] private Spawner spawner;
+    private float amountOfCollisions;
 
     private void LateUpdate()
     {
         SaveIntoJson();
+    }
+
+    public void AddCollision()
+    {
+        amountOfCollisions += 0.5f;
     }
 
     public void SaveIntoJson()
@@ -18,8 +25,8 @@ public class SaveData : MonoBehaviour
 
         newPerformanceData.time = Time.time;
         newPerformanceData.fps = 1 / Time.deltaTime;
-        newPerformanceData.colliders = 0;
-        newPerformanceData.amountOfCollisions = 0;
+        newPerformanceData.colliders = spawner.GetAmountSpawned();
+        newPerformanceData.amountOfCollisions = amountOfCollisions;
 
         performanceDataList.Add(newPerformanceData);
 
@@ -36,5 +43,5 @@ public class PerformanceData
     public float fps;
     public float time;
     public int colliders;
-    public int amountOfCollisions;
+    public float amountOfCollisions;
 }

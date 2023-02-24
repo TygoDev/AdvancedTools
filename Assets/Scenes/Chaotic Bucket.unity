@@ -637,7 +637,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1156922104}
   - component: {fileID: 1156922105}
-  m_Layer: 0
+  - component: {fileID: 1156922106}
+  m_Layer: 1
   m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -671,7 +672,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f91dc9f86a7744690b2f71a7cd6825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderPrefab: {fileID: 8151504178795817992, guid: cafb66c25d22b5c499f6cf8f923afef0, type: 3}
+  colliderPrefab: {fileID: 5556128404504916357, guid: 758a6cc5430a4c148bc5cb167df117fa, type: 3}
+  amountToSpawn: 1000
+--- !u!65 &1156922106
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156922103}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 48.84627, y: 1, z: 49.011154}
+  m_Center: {x: -2.8446598, y: 0, z: 2.4240103}
 --- !u!1 &1161585745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,6 +1408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   performanceDataList: []
+  spawner: {fileID: 1156922105}
 --- !u!4 &1961339164
 Transform:
   m_ObjectHideFlags: 0
