@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
         Random.InitState(5);
     }
 
-    // make it run every 10 frames
+    // make it spawn 10 every 10 frames
     void LateUpdate()
     {
         Instantiate(colliderPrefab, RandomPointInBounds(GetComponent<BoxCollider>().bounds), Quaternion.identity);
