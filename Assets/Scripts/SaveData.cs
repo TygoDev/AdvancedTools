@@ -33,6 +33,7 @@ public class SaveData : MonoBehaviour
         string jsonStr = JsonConvert.SerializeObject(performanceDataList, Formatting.Indented);
 
         System.IO.File.WriteAllText(Application.persistentDataPath + "/PerformanceData.json", jsonStr);
+        Debug.Log(Application.persistentDataPath);
     }
 
 }

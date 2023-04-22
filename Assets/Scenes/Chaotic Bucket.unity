@@ -673,7 +673,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliderPrefab: {fileID: 5556128404504916357, guid: 758a6cc5430a4c148bc5cb167df117fa, type: 3}
-  amountToSpawn: 1000
 --- !u!65 &1156922106
 BoxCollider:
   m_ObjectHideFlags: 0
