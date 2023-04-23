@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Chaotic Bucket.unity
+    guid: 21e289f5458b10e42a51e48ee23577ac
   m_configObjects: {}
